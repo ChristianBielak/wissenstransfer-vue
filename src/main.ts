@@ -1,15 +1,8 @@
-import Vue from "vue";
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import "./style.css";
 import App from "./App.vue";
-import { GetTodoPlugin } from "./plugins/get-todo";
-import router from "./router";
-import store from "./store";
+import { useTodoStore } from "./store/todoStore";
 
-Vue.config.productionTip = false;
-
-Vue.use(GetTodoPlugin, { store });
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+createApp(App).use(createPinia()).mount("#app");
+useTodoStore();
