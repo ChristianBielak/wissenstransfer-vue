@@ -1,6 +1,6 @@
 import { TodoState } from "./types";
 
 export const state = (): TodoState => ({
-  todo: "",
-  todos: [],
+  todo: "Test",
+  todos: ["Eat", "Sleep"],
 });
