@@ -4,8 +4,7 @@ export const mutations = {
   SET_TODO(state: TodoState, todo: string) {
     state.todo = todo;
   },
-
-  SET_TODOS(state: TodoState, todos: string[]) {
-    state.todos = todos;
+  ADD_TODO(state: TodoState, todo: string) {
+    state.todos.push(todo);
   },
 };

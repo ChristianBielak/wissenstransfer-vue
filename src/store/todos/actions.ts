@@ -1,8 +1,7 @@
+import { Commit } from "vuex";
+
 export const actions = {
-  fetchTodo() {
-    console.log("fetch todo");
-  },
-  fetchTodos() {
-    console.log("fetch todos");
+  addTodo({ commit }: { commit: Commit }, todo: string) {
+    commit("ADD_TODO", todo);
   },
 };
