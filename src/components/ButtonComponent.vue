@@ -11,6 +11,10 @@ import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 export default class extends Vue {
   @Prop()
   text!: string;
+  //   @Prop({
+  //     default: "default text",
+  //   })
+  //   text!: string;
 
   @Emit("buttonClicked")
   emitEvent() {
