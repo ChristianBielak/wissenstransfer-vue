@@ -22,11 +22,7 @@ function triggerFunction() {
 
 <template>
   <div>
-    <ButtonComponent
-      @button-clicked="addTodo('foo')"
-      text-required="click me"
-      text-optional="hard"
-    />
+    <ButtonComponent @button-clicked="addTodo('foo')" text-optional="hard" />
 
     <ul>
       <li v-for="todo in vuexBinding">

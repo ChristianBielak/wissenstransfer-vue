@@ -8,7 +8,11 @@ interface props {
   textOptional?: string;
 }
 
-const props = defineProps<props>();
+// const props = defineProps<props>();
+
+const props = withDefaults(defineProps<props>(), {
+  textRequired: "default text",
+});
 
 const emit = defineEmits(["buttonClicked"]);
 function emitEvent() {
