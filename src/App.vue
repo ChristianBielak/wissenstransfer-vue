@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { useTodoStore } from "./store/todoStore";
+import ButtonComponent from "./components/ButtonComponent.vue";
 
 let counterNotReactive: number = 0;
 let counterReactive = ref<number>(0);
@@ -21,7 +22,11 @@ function triggerFunction() {
 
 <template>
   <div>
-    <button @click="addTodo('Foo')">click me</button>
+    <ButtonComponent
+      @button-clicked="addTodo('foo')"
+      text-required="click me"
+      text-optional="hard"
+    />
 
     <ul>
       <li v-for="todo in vuexBinding">
