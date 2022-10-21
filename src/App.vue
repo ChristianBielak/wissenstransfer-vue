@@ -6,12 +6,14 @@ import ButtonComponent from "./components/ButtonComponent.vue";
 let counterNotReactive: number = 0;
 let counterReactive = ref<number>(0);
 let computedCounter = computed((): number => counterReactive.value * 2);
-let vuexBinding = computed((): string[] => todoStore.todos);
 
 const todoStore = useTodoStore();
+
 function addTodo(todo: string) {
   todoStore.addTodo(todo);
 }
+let vuexBinding = computed((): string[] => todoStore.todos);
+let getterCall = computed((): string => todoStore.getTodo(1));
 
 watch(todoStore.todos, triggerFunction);
 function triggerFunction() {
@@ -23,19 +25,15 @@ function triggerFunction() {
 <template>
   <div>
     <ButtonComponent @button-clicked="addTodo('foo')" text-optional="hard" />
-
     <ul>
       <li v-for="todo in vuexBinding">
         {{ todo }}
       </li>
     </ul>
-
-    <br />
-    {{ counterNotReactive }}
-    <br />
-    {{ counterReactive }}
-    <br />
-    {{ computedCounter }}
+    <p>counterNotReactive: {{ counterNotReactive }}</p>
+    <p>counterReactive: {{ counterReactive }}</p>
+    <p>computedCounter: {{ computedCounter }}</p>
+    <p>getterCall: {{ getterCall }}</p>
   </div>
 </template>
 

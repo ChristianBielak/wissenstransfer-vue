@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export type RootState = {
+export type TodoState = {
   todos: string[];
   todo: string;
 };
@@ -8,7 +8,7 @@ export type RootState = {
 export const useTodoStore = defineStore({
   id: "todoStore",
 
-  state: (): RootState => ({
+  state: (): TodoState => ({
     todos: ["Eat", "Sleep"],
     todo: "",
   }),

@@ -5,4 +5,3 @@ import App from "./App.vue";
 import { useTodoStore } from "./store/todoStore";
 
 createApp(App).use(createPinia()).mount("#app");
-useTodoStore();
